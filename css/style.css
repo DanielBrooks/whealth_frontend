@@ -76,7 +76,7 @@ button                         { color: #fff; padding: 0; border: 0; }
     clear: both;
 }
 .no-display {
-    display: none;
+    display: none !important;
 }
 
 
@@ -130,28 +130,55 @@ h1 {
 .btn {
     display: block;
     text-align: center;
-    text-transform: uppercase;
     text-decoration: none;
+    margin: 0 auto;
+	cursor: pointer;
+	
+	-webkit-box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+    box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+}
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn-yellow {
     font: bold 11px AvantGarde;
     color: #514F55;
     background: #F69E1E;
-    margin: 0 auto;
     padding: 2px 0;
     width: 110px;
+    text-transform: uppercase;
     
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    
-    -webkit-box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
-    -moz-box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
-    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
-.btn:hover {
+.btn-yellow:hover {
     color: #777;
-    text-decoration: none;
 }
 
+
+.btn-grey {
+	background: #DFDFDF;
+	color: #515056;
+	font-size: 12px;
+	width: 232px;
+	height: 20px;
+	padding: 4px 0 0;
+	
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;	
+}
+.btn-grey:hover {
+	color: #F59E1D;
+}
+.btn-grey:active,
+.btn-grey.checked {
+	background: #808284;
+	color: #FFF;
+}
 
 .sidebar {
     width: 154px;
@@ -271,8 +298,11 @@ h1 {
 	height: 309px;
 	overflow: hidden;
     color: #FFF;
+	text-align: center;
 }
-
+.slider li {
+	height: 100%;
+}
 
 .anythingSlider {
     position: relative;
@@ -292,7 +322,6 @@ h1 {
 }
 
 .anythingSlider .fade .panel {
-    text-align: center;
     z-index: 0;
 }
 .anythingSlider .fade .activePage {
@@ -364,20 +393,25 @@ h1 {
     padding: 0;
 }
 
-
+.register-slider h2 {
+	padding: 54px 0 7px;
+}
+.register-slider p {
+	line-height: 175%;
+}
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------> Login page <----------------------------------*/
 /*----------------------------------------------------------------------------------*/
-.content .description p {
+.description p {
     font-size: 12px;
     line-height: 167%;
     padding: 18px 0 0;
 }
-.content .description .btn {
+.description .btn {
     margin-top: 24px;
 }
 
-.content .description {
+.description {
     padding: 0 17px;
 }
 
@@ -388,6 +422,11 @@ h1 {
 .columns .right {
     float: left;
 }
+.register-page .description h3 {
+    color: #F49D1D;
+    font-size: 11px;
+    text-transform: uppercase;
+}
 
 
 .register-page .slider {
@@ -396,29 +435,29 @@ h1 {
 .register-page .columns {
     padding: 28px 0 0;
 }
-.register-page .columns .left {
+
+.register-form .left {
     width: 285px;
     margin: 0 40px 0 0;
 }
-.register-page .columns .left .register-list {
+.register-form .left .register-list {
     margin-left: 27px;
 }
-.register-page .columns .right {
+.register-form .right {
     width: 340px;
 }
-.register-page .columns .right .register-list {
+.register-form .right .register-list {
     margin-left: 48px;
 }
 
-.register-page h3 {
-    color: #F49D1D;
-    font-size: 11px;
+.register-form h3 {
     text-align: center;
-    text-transform: uppercase;
 }
-.register-page .description .btn {
+.description.register-form .btn {
     margin-top: 10px;
 }
+
+
 
 .register-list {
     width: 232px;
@@ -439,6 +478,8 @@ h1 {
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
+	
+	-webkit-appearance: none;
 }
 .register-list .double input:first-child {
     width: 55px;
@@ -455,6 +496,142 @@ h1 {
     text-align: center;
 }
 
+
+
+.register-info-first p {
+	text-align: center;
+}
+.register-info-first .left,
+.register-info-first .right {
+	width: 300px;
+}
+.register-info-first .left {
+	margin: 0 50px 0 17px;
+}
+
+.register-check-list li {
+	padding: 19px 0 0;
+}
+.register-check-list li:first-child {
+	padding: 13px 0 0;
+}
+.register-check-list input {
+	display: none;
+}
+.register-check-list label {
+	display: inline-block;
+	padding: 0 0 0 37px;
+	position: relative;
+	font-size: 12px;
+	line-height: 160%;
+	cursor: pointer;
+}
+.register-check-list .icon {
+	display: block;
+	width: 12px;
+	height: 16px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/checkbox_icons.png) 0 -16px no-repeat;
+	background-size: 12px 32px;
+	
+}
+.register-check-list .checked .icon {
+	background-position: 0 0;
+}
+
+
+
+.register-info-second .columns {
+	padding-top: 66px;
+}
+.register-info-second .right {
+	width: 300px;
+}
+.register-info-second .left {
+	width: 346px;
+	margin: 0 0 0 60px;
+}
+.register-info-second .btn-grey {
+	margin-top: 28px;
+}
+.register-info-second .btn-yellow {
+	margin-top: 105px;
+}
+.radio-list {
+	padding: 0 0 5px 3px;
+	width: 232px;
+}
+.radio-list input {
+	display: none;
+}
+
+
+.register-info-third {
+	text-align: center;
+}
+.register-info-third h3 {
+	padding: 52px 0 9px;
+}
+.register-info-third .radio-list {
+	margin: 0 auto;
+}
+.register-info-third .btn-yellow {
+	margin-top: 155px;
+}
+
+
+.overlay {
+	background: #808284;
+	opacity: 0.8;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+.lightbox {
+	width: 750px;
+	height: 450px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -225px 0 0 -375px;
+	background: #FFF;
+	text-align: center;
+	z-index: 10000;
+}
+.lightbox h2 {
+	background: #808284;
+	text-transform: uppercase;
+	color: #FFF;
+	margin: 9px 0 0;
+	padding: 6px 0 0;
+	font-size: 20px;
+	height: 35px;
+}
+.lightbox h3 {
+	font-size: 12px;
+	color: #F49D1D;
+	line-height: 140%;
+	text-transform: uppercase;
+	padding: 35px 0 19px;
+}
+.lightbox textarea {
+	width: 360px;
+	height: 200px;
+	border: 1px solid #666;
+	resize: none;
+	padding: 8px 1px 8px 11px;
+	
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+.lightbox .btn-yellow {
+	margin-top: 28px;
+}
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
