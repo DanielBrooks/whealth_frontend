@@ -87,8 +87,8 @@ button                         { color: #fff; padding: 0; border: 0; }
     height: 100%;
     min-height: 670px;
     position: relative;
-    background: url(../images/bg_pattern.png) no-repeat;
-    background-size: cover;
+    background: url(../images/bg_pattern.png) repeat;
+    background-size: 500px 300px;
     
 }
 
@@ -632,6 +632,73 @@ h1 {
 .lightbox .btn-yellow {
 	margin-top: 28px;
 }
+
+
+
+@media all and (max-width: 768px) {
+	body {
+		min-width: 768px;
+	}
+	.wrap {
+		width: 748px;
+	}
+	.page {
+		position: relative;
+	}
+	.slider {
+		width: 450px;
+	}
+	.anythingSlider,
+	.slider {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.anythingSlider .slider {
+		margin: 0;
+	}
+	.slider .photo-block {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+	.slider .info-block {
+		display: none;
+	}
+	
+	.content {
+		padding-left: 20px;
+		padding-right: 22px;
+	}
+	.description {
+		padding: 0;
+	}
+	.columns .left,
+	.columns .right {
+		float: none;
+		width: auto;
+		margin: 0;
+	}
+	.register-list {
+		margin: 0 auto !important;
+	}
+	.left {
+		padding-bottom: 24px;
+	}
+	.register-form .left {
+		padding-bottom: 14px;
+	}
+	.description .btn {
+		margin-top: 24px;
+	}
+	
+	.register-info-second {
+		text-align: center;
+	}
+	.register-info-second .radio-list {
+		margin: 0 auto;
+	}
+}
+
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------*/
