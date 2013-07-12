@@ -90,6 +90,7 @@
 }
 .ui-selectmenu-menu .enable-custom-selectmenu {
     border-top: 0;
+    background: #FFF;
     
     -webkit-border-radius: 0 0 11px 11px;
     -moz-border-radius: 0 0 11px 11px;

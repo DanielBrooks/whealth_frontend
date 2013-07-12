@@ -96,13 +96,22 @@ $(document).ready(function() {
     });
     
     $('.delete-item').on('click', function() {
+        $('.overlay').removeClass('no-display');
         $('.confirm-lightbox').removeClass('no-display');
         $('.lightbox').addClass('hide-lightbox');
     });
     
     $('.cancel-confirm').on('click', function() {
+        
         $('.confirm-lightbox').addClass('no-display');
         $('.lightbox').removeClass('hide-lightbox');
+        
+        if ($('.lightbox').hasClass('no-display')) {
+            
+            $('.overlay').addClass('no-display');
+            
+        }
+        
     });
     
     
