@@ -22,41 +22,15 @@
     <body>
         <div class="wrapper">
             <div class="wrap">
-                <div class="page register-page">
+                <div class="page login-page">
                     <div class="sidebar">
                         <h1><a href="index.html" class="logo"><img src="images/logo.png" alt="Logo" /></a></h1>
                         
-                        <form>
-                            <ul class="login-block">
-                                <li class="input-block">
-                                    <label>Login / Email</label>
-                                    <input type="text" />
-                                </li>
-                                <li class="input-block">
-                                    <label>Password</label>
-                                    <input type="password" />
-                                </li>
-                                <li class="check-block">
-                                    <label><input type="checkbox" /> Remember me</label>
-                                    
-                                </li>
-                                <li><a href="#">Forgot Login/Password?</a></li>
-                            </ul>
-                        </form>
-                        
-                        <ul class="nav">
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="#">Contact / Help</a></li>
-                            <li><a href="register_success_1.html">Post-register1</a></li>
-                            <li><a href="register_success_2.html">Post-register2</a></li>
-                            <li class="active"><a href="register_success_3.html">Post-register3</a></li>
-                        </ul>
-                        
+                        <span class="powered">Powered by <br />whealth360.com</span>
                     </div> <!-- /Sidebar -->
                     
                     <div class="content">
-                        <ul class="slider short-slider static-slider">
+                        <ul class="slider short-slider">
                             <li>
                                 <div class="photo-block"><img src="images/default_slider_4.png" alt="Slide Photo" /></div>
                                 <div class="info-block">
@@ -71,16 +45,39 @@
                             
                         </ul>
                         
-                        <div class="description register-info-third">
-                            <form>
-                                <h3>Do you want to schedule a short walk through <br />during which we can help you <br />get set up and answer any questions?</h3>
-                                <ul class="radio-list">
-                                    <li><label class="btn btn-grey"><input type="radio" name="import_client" />No thanks</label></li>
-                                    <li><label class="btn btn-grey"><input class="activate-lightbox" type="radio" name="import_client" />Yes</label></li>
-                                </ul>
-                                
-                                <button type="submit" class="btn btn-yellow">Next</button>
-                            </form>
+                        <div class="description login-info">
+                                <div class="left">
+                                    <p>Welcome text from the advisor goes here, briefly describing the survey, and giving time expectations. It will also speak to the fact that you need to login on the right hand side, and use the provided credentials. And please use the contact info below if any problems arise. </p>
+                                    <div class="logo-block"><a href="items.html"><img src="images/advisor_logo.png" alt="Logo" /></a></div>
+                                    <div class="advisor-block">
+                                        <div class="photo-holder"><img src="images/default_advisor_photo.png" alt="Photo" /></div>
+                                        <ul class="person-info">
+                                            <li class="position">JW Harrison Financial Advisors</li>
+                                            <li>Joe Harrison, CFP®</li>
+                                            <li>925.271.5521</li>
+                                            <li><a href="#" class="email">info@jwharrison.com</a></li>
+                                            <li>1655 North Main St., Ste. 390 </li>
+                                            <li>Walnut Creek, CA 94596</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <form>
+                                        <ul class="form-list">
+                                            <li class="input-block"><input type="email" placeholder="Login Email" /></li>
+                                            <li class="input-block"><input type="password" placeholder="Password" /></li>
+                                            <li class="check-block">
+                                                <label class="custom-check">
+                                                    <span class="icon"></span>
+                                                    <input type="checkbox" />
+                                                    Remember me
+                                                </label>
+                                            </li>
+                                            <li class="forgot-block"><a href="#" class="forgot">Forgot Login/Password?</a></li>
+                                            <li><button class="btn btn-yellow">Sign in</button></li>
+                                        </ul>
+                                    </form>
+                                </div>
                         </div>
                         
                     </div> <!-- /Content -->
@@ -90,18 +87,6 @@
             </div> <!-- /Wrap -->
         </div> <!-- /Wrapper -->
 
-        
-        <div class="overlay no-display"></div>
-        <div class="lightbox no-display">
-            <h2>Scheduling a walk through</h2>
-            <h3>Please let us know in the message box below <br />a few time windows that would be convenient for you. <br />We'll be in touch shortly.</h3>
-            <form>
-                <textarea></textarea>
-                <button type="submit" class="btn btn-yellow close-lightbox">Send &amp; Close</button>
-            </form>
-        </div>
-        
-        
         <!--
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         -->

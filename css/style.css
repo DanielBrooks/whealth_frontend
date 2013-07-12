@@ -58,14 +58,14 @@ body, select, input, textarea, input[type="password"], button {
 
 select, input, textarea        { font-size: 13px; vertical-align:middle; }
 textarea                       { vertical-align:top; }
-:focus                         { outline:none; }
+:focus                         { outline:none !important; }
 input[type=submit]             { cursor:pointer; }
 input[type="password"]         {  }
 input[type="checkbox"]	       { vertical-align: baseline !important; margin-top: 2px !important; }
 img, fieldset                  { border:0; }
 table                          { border-collapse:collapse; border-spacing:0; }
 a                              { color: #000; /*color: #0085D2;*/ text-decoration:none; }
-a:hover                        { color: #00CB98; text-decoration:underline; }
+a:hover                        { color: #000; text-decoration:underline; }
 button                         { color: #fff; padding: 0; border: 0; }
 
 
@@ -78,7 +78,12 @@ button                         { color: #fff; padding: 0; border: 0; }
 .no-display {
     display: none !important;
 }
-
+.no-margin {
+	margin: 0 !important;
+}
+.no-padding {
+	padding: 0 !important;
+}
 
 /*----------------------------------------------------------------------------------*/
 /*---------------------------------> Main structure <-------------------------------*/
@@ -253,7 +258,11 @@ h1 {
 .sidebar .nav {
     padding: 28px 18px 0;
 }
-.sidebar .nav a {
+.sidebar .nav.nav-alone {
+	padding-top: 64px;
+}
+.sidebar .nav a,
+.sidebar .nav .sub-nav .caption {
     display: block;
     color: #FFF;
     text-decoration: none;
@@ -268,19 +277,22 @@ h1 {
     border-top: 1px solid #FFF;
 }
 .sidebar .nav a:hover,
-.sidebar .nav .active a {
+.sidebar .nav .active > a,
+.sidebar .nav .sub-nav .caption,
+.sidebar .nav .sub-nav .active {
     color: #514F55;
 }
-.sidebar .nav .active a {
+.sidebar .nav .active > a,
+.sidebar .nav .sub-nav .caption {
     padding-right: 19px;
     position: relative;
 }
-.sidebar .nav .active a:before {
+.sidebar .nav .sub-nav.active .caption:before,
+.sidebar .nav .active > a:before {
     display: block;
     position: absolute;
-    top: 50%;
+    top: 10px;
     right: 5px;
-    margin: -5px 0 0;
     width: 0;
     height: 0;
     content: " ";
@@ -288,8 +300,24 @@ h1 {
     border-color: transparent #FFF transparent transparent;
     border-width: 5px 8px 5px 0;
 }
+.sidebar .nav .sub-nav.active .caption:before {
+    border-color: #FFF transparent transparent;
+    border-width: 8px 5px 0;
+	top: 11px;
+}
 
-
+.sidebar .nav .sub-nav .caption {
+	padding-bottom: 8px;
+}
+.sidebar .nav .sub-nav a {
+	border: 0;
+	font-style: italic;
+	margin: 0 11px 0 0;
+	padding: 4px 0 3px;
+}
+.sidebar .nav .sub-nav a:first-child {
+	margin-top: 6px;
+}
 /*----------------------------------------------------------------------------------*/
 /*---------------------------------> Slider block <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
@@ -393,14 +421,20 @@ h1 {
     padding: 0;
 }
 
-.register-slider h2 {
+
+.slider.short-slider {
+    height: 184px;
+}
+.static-slider h2 {
 	padding: 54px 0 7px;
 }
-.register-slider p {
+.static-slider p {
 	line-height: 175%;
 }
+
+
 /*----------------------------------------------------------------------------------*/
-/*----------------------------------> Login page <----------------------------------*/
+/*---------------------------------> Register pages <-------------------------------*/
 /*----------------------------------------------------------------------------------*/
 .description p {
     font-size: 12px;
@@ -427,11 +461,10 @@ h1 {
     font-size: 11px;
     text-transform: uppercase;
 }
-
-
-.register-page .slider {
-    height: 184px;
+.register-page .form-list .small-padding {
+	padding: 0 0 3px;
 }
+
 .register-page .columns {
     padding: 28px 0 0;
 }
@@ -440,13 +473,13 @@ h1 {
     width: 285px;
     margin: 0 40px 0 0;
 }
-.register-form .left .register-list {
+.register-form .left .form-list {
     margin-left: 27px;
 }
 .register-form .right {
     width: 340px;
 }
-.register-form .right .register-list {
+.register-form .right .form-list {
     margin-left: 48px;
 }
 
@@ -454,19 +487,20 @@ h1 {
     text-align: center;
 }
 .description.register-form .btn {
-    margin-top: 10px;
+    margin-top: 4px;
 }
 
 
 
-.register-list {
+.form-list {
     width: 232px;
     padding: 11px 0 0;
 }
-.register-list li {
+.form-list li {
     padding: 0 0 10px;
 }
-.register-list input {
+.form-list .input-block input,
+.search-block input {
     font-size: 10px;
     text-align: center;
     width: 200px;
@@ -481,15 +515,22 @@ h1 {
 	
 	-webkit-appearance: none;
 }
-.register-list .double input:first-child {
+.form-list .double input:first-child {
     width: 55px;
     float: left;
     margin: 0 8px 0 0;
 }
-.register-list .double input {
+.form-list .double input {
     width: 105px;
 }
-.register-list .hint {
+.form-list .double.even-double input {
+    width: 81px;
+}
+.form-list .double.even-double input:first-child {
+	margin-right: 6px;
+}
+.form-list .hint,
+.items-page .add-block .hint {
     font-size: 9px;
     font-style: italic;
     display: block;
@@ -515,10 +556,8 @@ h1 {
 .register-check-list li:first-child {
 	padding: 13px 0 0;
 }
-.register-check-list input {
-	display: none;
-}
-.register-check-list label {
+
+.custom-check {
 	display: inline-block;
 	padding: 0 0 0 37px;
 	position: relative;
@@ -526,7 +565,10 @@ h1 {
 	line-height: 160%;
 	cursor: pointer;
 }
-.register-check-list .icon {
+.custom-check input {
+	display: none;
+}
+.custom-check .icon {
 	display: block;
 	width: 12px;
 	height: 16px;
@@ -537,7 +579,7 @@ h1 {
 	background-size: 12px 32px;
 	
 }
-.register-check-list .checked .icon {
+.custom-check.checked .icon {
 	background-position: 0 0;
 }
 
@@ -582,6 +624,431 @@ h1 {
 }
 
 
+/*----------------------------------------------------------------------------------*/
+/*-----------------------------------> Login page <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.login-page .content {
+	position: relative;
+}
+.login-page .slider {
+	position: absolute;
+	left: inherit;
+	top: inherit;
+}
+.login-page .content,
+.login-page .description,
+.login-info .right {
+	height: 100%;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.login-page .description {
+	padding-top: 194px;
+}
+
+
+.login-info .left {
+	float: left;
+	width: 408px;
+	margin: 0 25px 0 0;
+}
+.login-info .right {
+	overflow: hidden;
+	border-left: 3px solid #808284;
+}
+
+
+.login-page .powered {
+	text-transform: uppercase;
+	color: #FFF;
+	font-size: 9px;
+	font-weight: bold;
+	display: block;
+	padding: 19px 0 0 24px;
+	line-height: 167%;
+}
+
+.login-info .logo-block {
+	text-align: center;
+	padding: 6px 0 25px;
+}
+.login-info .logo-block img {
+	max-width: 155px;
+	max-height: 90px;
+}
+.login-info .advisor-block {
+	overflow: hidden;
+}
+.photo-holder img {
+	max-width: 90px;
+	max-height: 112px;
+	border: 2px solid #808284;
+}
+.login-info .photo-holder {
+	float: left;
+	margin: 0 48px 0 27px;
+}
+.login-info .person-info {
+	font-size: 10px;
+	line-height: 165%;
+	overflow: hidden;
+}
+.login-info .person-info .position {
+	color: #F49D1D;
+	font-weight: bold;
+}
+.login-info .email {
+	color: #000;
+}
+
+.login-info .form-list {
+	text-align: center;
+	padding: 20px 0 0 30px;
+}
+.login-info .custom-check {
+	padding-left: 20px;
+}
+.login-info .input-block {
+	padding-bottom: 20px;
+}
+.login-info .check-block {
+	padding-bottom: 16px;
+}
+.login-info .forgot-block {
+	padding-bottom: 23px;
+}
+.login-info .forgot {
+	font-size: 10px;
+}
+.login-info .btn {
+	margin-top: 0;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*-----------------------------------> Item page <----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.advisor-area .sidebar {
+	position: relative;
+}
+.logged-in {
+	text-align: right;
+	position: absolute;
+	right: 22px;
+	bottom: 18px;
+	padding: 0 0 0 10px;
+}
+.logged-in .name,
+.logged-in .logout {
+	font-size: 9px;
+	line-height: 135%;
+	display: block;
+}
+.logged-in .logout {
+	font-weight: bold;
+	text-transform: uppercase;
+	float: right;
+	margin: 12px 0 0;
+}
+
+.advisor-area .description {
+	padding: 36px 68px 0 64px;
+}
+.advisor-area .description p {
+	padding: 0;
+}
+.advisor-area .description h2 {
+	color: #F49D1D;
+	font-weight: bold;
+	font-size: 11px;
+	text-transform: uppercase;
+	padding: 28px 0 23px;
+}
+
+
+.btn-auto-width {
+	width: auto;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.advisor-area .description .btn,
+.search-block .btn {
+	margin: 0;
+	float: left;
+}
+.advisor-area .control-block {
+	overflow: hidden;
+	padding: 0 0 25px;
+}
+.search-block {
+	float: right;
+	width: 270px;
+}
+.search-block input {
+	float: left;
+	margin: 0 5px 0 0;
+}
+.items-page .add-block .hint {
+	padding: 2px 0 0 12px;
+	float: left;
+}
+
+
+.table-block {
+	border: 1px solid #56575C;
+}
+.table-block .caption-block {
+	background: #DADADA;
+	overflow: hidden;
+	padding-right: 15px;
+}
+/*.table-block .item-list,*/
+.table-block .caption-block {
+	border-bottom: 1px solid #96989A;
+}
+.table-block .sort .sort-icon {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin: 0 0 0 5px;
+	border-style: solid;
+	border-width: 8px 4px 0;
+	border-color: #808284 transparent transparent;
+}
+.table-block .sort.sort-up .sort-icon {
+	border-width: 0 4px 8px;
+	border-color: transparent transparent #808284;
+}
+
+.table-block .title,
+.table-block .name,
+.table-block .start-date,
+.table-block .end-date,
+.table-block .last-name,
+.table-block .advisor {
+	border-top: 1px solid #96989A;
+	border-left: 1px solid #96989A;
+	font-size: 10px;
+	display: block;
+	float: left;
+	text-align: center;
+	height: 50px;
+	padding-top: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.table-block .item-list li > span:first-child,
+.table-block .item-list a > span:first-child,
+.table-block .caption-block a:first-child {
+	border-left: 0;
+	padding-left: 30px;
+	padding-top: 10px;
+	text-align: left;
+	padding-right: 10px;
+}
+.table-block .two-lines {
+	display: block;
+	overflow: hidden;
+	white-space: normal;
+	max-height: 30px;
+}
+.table-block .name {
+	padding-left: 18px;
+	text-align: left;
+}
+.table-block .caption-block > *,
+.table-block .caption-block a:first-child {
+	border-top: 0;
+	height: 30px;
+	padding: 8px 0 0;
+	text-align: center;
+	font-style: normal;
+	text-decoration: none;
+}
+.table-block .item-list a {
+	display: block;
+	color: #514F55;
+	font-style: italic;
+}
+.table-block .item-list .title {
+	color: #000;
+}
+.table-block .item-list li {
+	overflow: hidden;
+}
+.table-block .item-list li:first-child * {
+	border-top: 0;
+}
+.table-block .item-list li:hover {
+	background: #FAFAFA;
+}
+
+
+.table-block.one-line-table .item-list span,
+.table-block.one-line-table .item-list span:first-child {
+	height: 30px;
+	text-align: center;
+	padding-top: 8px;
+	padding-left: 0;
+	color: #000;
+}
+
+
+
+.items-page .enable-custom-scrollbar {
+	height: 300px;
+}
+.items-page .table-block .title {
+	width: 40%;
+}
+.items-page .table-block .name {
+	width: 26%;
+}
+.items-page .table-block .start-date {
+	width: 17%;
+}
+.items-page .table-block .end-date {
+	width: 17%;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*---------------------------------> Clients page <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.clients-page .table-block .name {
+	width: 30%;
+}
+.clients-page .table-block .last-name {
+	width: 35%;
+}
+.clients-page .table-block .advisor {
+	width: 35%;
+}
+
+
+.clients-page .enable-custom-scrollbar {
+	height: 150px;
+}
+.clients-page .form-list {
+	float: left;
+	margin: 0 35px 0 0;
+}
+.clients-page .description .btn {
+	margin-top: 140px;
+}
+.clients-page .description h2 {
+	padding: 24px 0 6px;
+}
+
+.clients-page .control-block {
+	clear: both;
+	padding: 50px 0 23px;
+}
+.clients-page .control-block h2 {
+	float: left;
+	padding: 3px 0 0;
+}
+.clients-page .search-block {
+	float: left;
+	margin: 0 0 0 20px;
+}
+.clients-page .search-block .btn {
+	margin-top: 0;
+}
+
+.clients-page .select-advisor {
+	width: 230px;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------> Firm advisor page <------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.firm-advisor-page .form-list {
+	width: 250px;
+}
+.firm-advisor-page .form-list .caption-block {
+	overflow: hidden;
+}
+.firm-advisor-page .form-list h2 {
+	padding: 1px 11px 0 0;
+	float: left;
+}
+.firm-advisor-page .input-block input {
+	width: 215px;
+}
+.firm-advisor-page .check-block label {
+	line-height: 110%;
+	font-size: 10px;
+	font-style: italic;
+	padding: 0 0 0 20px;
+	margin: 0 0 0 10px;
+}
+.firm-advisor-page .check-block .icon {
+	top: -4px;
+}
+.firm-advisor-page .buttons-block .btn {
+	margin: 0 auto;
+	float: none;
+}
+
+.firm-advisor-page .table-block {
+	width: 320px;
+}
+.firm-advisor-page .table-block .name,
+.firm-advisor-page .table-block .last-name {
+	width: 50%;
+}
+
+.firm-advisor-page .enable-custom-scrollbar {
+	height: 150px;
+}
+
+.firm-advisor-page .advisor-info {
+	clear: both;
+	padding: 20px 0 0;
+}
+.firm-advisor-page .clients-block {
+	float: right;
+}
+.firm-advisor-page .form-list,
+.firm-advisor-page .photo-block {
+	float: left;
+}
+.firm-advisor-page .photo-block {
+	width: 96px;
+	margin: 47px 0 0 12px;
+	text-align: center;
+}
+.firm-advisor-page .photo-link {
+	font-size: 8px;
+	line-height: 100%;
+	display: block;
+	font-style: italic;
+	margin: 4px 0 0;
+	padding: 0 0 2px;
+}
+
+.firm-advisor-page .clients-block {
+	margin: 0 -30px 0 0;
+}
+.firm-advisor-page .advisors-block h2 {
+	padding: 24px 0 17px;
+}
+.firm-advisor-page .clients-block h2 {
+	padding: 12px 0 18px;
+}
+/*----------------------------------------------------------------------------------*/
+/*-----------------------------------> Lightboxes <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
 .overlay {
 	background: #808284;
 	opacity: 0.8;
@@ -634,7 +1101,142 @@ h1 {
 }
 
 
+.hide-lightbox {
+	z-index: 9998;
+}
 
+.add-item-form {
+	height: 584px;
+	margin-top: -292px;
+}
+.add-item-form h3 {
+	padding: 27px 0 24px;
+}
+.add-item-form ul {
+	width: 680px;
+	margin: 0 auto;
+	text-align: left;
+}
+.add-item-form li {
+	float: left;
+}
+.add-item-form .buttons-block {
+	clear: both;
+	float: none;
+	text-align: center;
+	padding: 60px 0 24px;
+}
+.add-item-form .buttons-block .btn {
+	display: inline-block;
+	margin: 0 16px;
+}
+
+.add-item-form .input-block {
+	margin: 0 0 0 25px;
+}
+.add-item-form .input-block input {
+	border: 1px solid #909090;
+	width: 188px;
+	padding: 3px 10px;
+}
+.add-item-form .text-block {
+	width: 100%;
+	padding: 0 0 27px;
+}
+.add-item-form textarea {
+	width: 666px;
+}
+.add-item-form label {
+	display: block;
+	font-size: 9px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #656565;
+	padding: 0 0 11px;
+}
+.add-item-form .check-block {
+	padding: 25px 0 0;
+}
+.add-item-form .check-block label {
+	padding: 0 0 0 15px;
+}
+.add-item-form .check-block .icon {
+	top: -3px;
+}
+
+.confirm-lightbox {
+	width: 294;
+	height: 126px;
+	margin: -63px 0 0 -147px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 10000;
+	background: #FFF;
+	text-align: center;
+}
+.confirm-lightbox .confirm-wrap {
+	border: 1px solid #808284;
+	margin: 5px;
+	padding: 14px 0 10px;
+}
+.confirm-lightbox p {
+	font-size: 9px;
+	line-height: 194%;
+	color: #656565;
+	padding: 0 0 14px;
+}
+.confirm-lightbox .btn {
+	display: inline-block;
+	margin: 0 13px;
+}
+
+.ui-datepicker {
+	font-size: 12px;
+}
+
+.upload-lightbox .caption,
+.upload-lightbox p,
+.upload-lightbox .file-name,
+.upload-lightbox .upload-link {
+	line-height: 130%;
+	font-size: 9px;
+}
+.upload-lightbox .caption {
+	font-weight: bold;
+	display: block;
+}
+.upload-lightbox .confirm-wrap {
+	padding: 7px 0 12px;
+}
+.upload-lightbox .upload-block {
+	overflow: hidden;
+	padding: 0 0 11px;
+}
+.upload-lightbox .upload-block input {
+	display: none;
+}
+.upload-lightbox .upload-block .upload-link,
+.upload-lightbox .upload-block .file-name {
+	display: block;
+	float: left;
+}
+.upload-lightbox .upload-block .upload-link {
+	margin: 0 45px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.upload-lightbox .upload-block .file-name {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 100px;
+	text-align: left;
+	font-style: italic;
+}
+/*----------------------------------------------------------------------------------*/
+/*-----------------------------------> Responsive <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
 @media all and (max-width: 768px) {
 	body {
 		min-width: 768px;
@@ -678,7 +1280,7 @@ h1 {
 		width: auto;
 		margin: 0;
 	}
-	.register-list {
+	.form-list {
 		margin: 0 auto !important;
 	}
 	.left {
