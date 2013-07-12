@@ -58,7 +58,7 @@
 
 
 
-.ui-selectmenu.select-advisor {
+.ui-selectmenu.enable-custom-selectmenu {
     height: auto;
     text-align: center;
     
@@ -66,29 +66,29 @@
     -moz-border-radius: 11px;
     border-radius: 11px;
 }
-.ui-selectmenu.select-advisor.ui-state-active {
+.ui-selectmenu.enable-custom-selectmenu.ui-state-active {
     -webkit-border-radius: 11px 11px 0 0;
     -moz-border-radius: 11px 11px 0 0;
     border-radius: 11px 11px 0 0;
 }
-.ui-selectmenu-menu .select-advisor li a,
-.select-advisor .ui-selectmenu-status {
+.ui-selectmenu-menu .enable-custom-selectmenu li a,
+.enable-custom-selectmenu .ui-selectmenu-status {
     font-size: 10px;
     background: transparent !important;
     padding: 3px 10px;
 }
-.ui-selectmenu.select-advisor,
-.ui-selectmenu.select-advisor.ui-state-hover,
-.ui-selectmenu-menu .select-advisor .ui-state-hover {
+.ui-selectmenu.enable-custom-selectmenu,
+.ui-selectmenu.enable-custom-selectmenu.ui-state-hover,
+.ui-selectmenu-menu .enable-custom-selectmenu .ui-state-hover {
     background: none;
     text-decoration: none;
 }
 
-.ui-selectmenu.select-advisor,
-.ui-selectmenu-menu .select-advisor {
+.ui-selectmenu.enable-custom-selectmenu,
+.ui-selectmenu-menu .enable-custom-selectmenu {
     border: 1px solid #808284;
 }
-.ui-selectmenu-menu .select-advisor {
+.ui-selectmenu-menu .enable-custom-selectmenu {
     border-top: 0;
     
     -webkit-border-radius: 0 0 11px 11px;
@@ -96,7 +96,7 @@
     border-radius: 0 0 11px 11px;
 }
 
-.select-advisor .ui-selectmenu-icon {
+.enable-custom-selectmenu .ui-selectmenu-icon {
     width: 0;
     height: 0;
     border-style: solid;
@@ -106,6 +106,6 @@
     right: 9px;
     background: transparent;
 }
-.ui-selectmenu-menu .select-advisor .ui-state-hover {
+.ui-selectmenu-menu .enable-custom-selectmenu .ui-state-hover {
     background: #FAFAFA;
 }

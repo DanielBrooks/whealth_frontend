@@ -24,6 +24,9 @@ $(document).ready(function() {
     $('.enable-datepicker').datepicker();
     
     $('#advisor-list').selectmenu();
+    $('.enable-custom-selectmenu').selectmenu();
+    
+    $('#tabs').tabs();
     
     // Style custom checkboxes when the page is loaded and if any of them is set as "checked" by default
     $('.custom-check').each(function() {

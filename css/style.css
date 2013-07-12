@@ -530,7 +530,7 @@ h1 {
 	margin-right: 6px;
 }
 .form-list .hint,
-.items-page .add-block .hint {
+.add-block .hint {
     font-size: 9px;
     font-style: italic;
     display: block;
@@ -674,7 +674,7 @@ h1 {
 	text-align: center;
 	padding: 6px 0 25px;
 }
-.login-info .logo-block img {
+.logo-holder img {
 	max-width: 155px;
 	max-height: 90px;
 }
@@ -791,7 +791,7 @@ h1 {
 	float: left;
 	margin: 0 5px 0 0;
 }
-.items-page .add-block .hint {
+.add-block .hint {
 	padding: 2px 0 0 12px;
 	float: left;
 }
@@ -964,7 +964,7 @@ h1 {
 	margin-top: 0;
 }
 
-.clients-page .select-advisor {
+.enable-custom-selectmenu {
 	width: 230px;
 }
 
@@ -1046,6 +1046,143 @@ h1 {
 .firm-advisor-page .clients-block h2 {
 	padding: 12px 0 18px;
 }
+
+
+/*----------------------------------------------------------------------------------*/
+/*--------------------------------> Firm admin page <-------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.firm-admin-page .firm-info {
+	float: left;
+	margin: 0 150px 0 0;
+}
+.firm-admin-page .logo-block {
+	text-align: center;
+}
+.firm-admin-page .logo-block .logo-link {
+	display: inline-block;
+	font-size: 8px;
+	font-style: italic;
+	line-height: 100%;
+	margin: 18px 0 0;
+}
+.firm-admin-page .description .btn {
+	float: none;
+	margin: 5px auto 0;
+}
+.firm-admin-page .admin-info {
+	float: left;
+}
+.firm-admin-page .admin-info .form-list {
+	padding-top: 0;
+	padding-bottom: 21px;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*------------------------------> Client notes page <-------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.client-tabs-page .description {
+	padding: 21px 0 0;
+}
+
+.client-tabs-page .notes-block .caption {
+	display: block;
+	background: #DADADA;
+	border: 1px solid #96989A;
+	border-bottom: 0;
+	font-size: 10px;
+	height: 22px;
+	padding: 8px 0 0 32px;
+}
+.client-tabs-page .notes-block textarea {
+	display: block;
+	border: 1px solid #96989A;
+	width: 100%;
+	height: 136px;
+	padding: 5px 1px 10px 32px;
+	resize: none;
+	font-size: 10px;
+	line-height: 200%;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.client-tabs-page .notes-block .btn {
+	float: none;
+	margin: 16px 0 22px;
+}
+.client-tabs-page .advisor-info {
+	overflow: hidden;
+}
+.client-tabs-page .advisor-info li {
+	list-style: disc;
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 0 19px 0 14px;
+	margin: 0 0 0 12px;
+	color: #F49D1D;
+}
+.client-tabs-page .advisor-info li:first-child {
+	list-style: none;
+	margin: 0;
+	padding-left: 67px;
+}
+.client-tabs-page .enable-custom-scrollbar {
+	height: 200px;
+}
+.client-tabs-page .table-block .title {
+	width: 66%;
+}
+.client-tabs-page .table-block .start-date,
+.client-tabs-page .table-block .end-date {
+	width: 17%;
+}
+.client-tabs-page .add-block {
+	padding: 14px 0 5px;
+	overflow: hidden;
+}
+
+
+.ui-tabs-nav {
+	background: #808284;
+	padding: 2px 93px 3px 66px;
+	margin: 17px 0 13px;
+}
+.ui-tabs-nav a {
+	color: #CBCBCB;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 182%;
+}
+.ui-tabs-nav a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+.ui-tabs-nav .ui-state-active a {
+	color: #FFF;
+	text-decoration: underline;
+}
+.ui-tabs-nav li {
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	width: 33.3%;
+}
+.ui-tabs-nav li:first-child {
+	text-align: left;
+}
+.ui-tabs-nav li:last-child {
+	text-align: right;
+}
+
+.ui-tabs-panel {
+	padding: 0 93px 0 66px;
+}
+
 /*----------------------------------------------------------------------------------*/
 /*-----------------------------------> Lightboxes <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
