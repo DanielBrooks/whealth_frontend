@@ -22,8 +22,9 @@ $(document).ready(function() {
     
     
     $('.enable-datepicker').datepicker();
+    $('.ui-datepicker').wrap('<div class="datepicker-smoothness" />')
     
-    $('#advisor-list').selectmenu();
+    
     $('.enable-custom-selectmenu').selectmenu();
     
     $('#tabs').tabs();
@@ -70,7 +71,28 @@ $(document).ready(function() {
         });
         
         $(this).addClass('checked');
+        
     });    
+    
+    
+    $('.radio-block label').each(function() {
+        if ($(this).find('input').prop('checked') == true) {
+            $(this).addClass('checked');
+        }
+        else {
+            $(this).removeClass('checked');
+        }
+    });
+    
+    $('.radio-block label').on('click', function() {
+        
+        $(this).closest('.radio-block').find('label').each(function() {
+            $(this).removeClass('checked');
+        });
+        
+        $(this).addClass('checked');
+        
+    });
     
     
     // Open the lightbox when the option "Yes" is set as "checked"
@@ -96,9 +118,24 @@ $(document).ready(function() {
     });
     
     $('.delete-item').on('click', function() {
+        
+        var confirmText = parseInt($(this).attr('data-confirm-text'));
+        
+        $('.confirm-lightbox').find('p[data-text]').each(function() {
+            
+            if ( parseInt($(this).attr('data-text')) == confirmText) {
+                $(this).removeClass('no-display');
+            }
+            else {
+                $(this).addClass('no-display');
+            }
+            
+        });
+        
         $('.overlay').removeClass('no-display');
         $('.confirm-lightbox').removeClass('no-display');
         $('.lightbox').addClass('hide-lightbox');
+        
     });
     
     $('.cancel-confirm').on('click', function() {

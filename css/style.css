@@ -536,8 +536,52 @@ h1 {
     display: block;
     text-align: center;
 }
+.form-list .date-hint {
+	overflow: hidden;
+	display: block;
+	font-size: 10px;
+	color: #999;
+	line-height: 200%;
+	text-transform: uppercase;
+	padding: 2px 0 0 4px;
+	height: 20px;
+}
 
 
+.form-list .radio-block {
+	font-size: 10px;
+	overflow: hidden;
+	padding-top: 5px;
+}
+.form-list .radio-block input {
+	display: none;
+}
+.form-list .radio-block .radio-caption {
+	display: block;
+	float: left;
+	padding: 0 10px 0 0;
+}
+.form-list .radio-block label {
+	cursor: pointer;
+	display: block;
+	float: left;
+	position: relative;
+	padding: 0 0 0 21px;
+	margin: 0 0 0 41px;
+}
+.form-list .radio-block .icon {
+	background: url(../images/radiobutton_icons.png) no-repeat;
+	background-size: 13px 26px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 13px;
+	height: 13px;
+}
+.form-list .radio-block .checked .icon {
+	background-position: 0 -13px;
+}
 
 .register-info-first p {
 	text-align: center;
@@ -1149,7 +1193,7 @@ h1 {
 .ui-tabs-nav {
 	background: #808284;
 	padding: 2px 93px 3px 66px;
-	margin: 17px 0 13px;
+	margin: 17px 0 10px;
 }
 .ui-tabs-nav a {
 	color: #CBCBCB;
@@ -1183,6 +1227,45 @@ h1 {
 	padding: 0 93px 0 66px;
 }
 
+
+.profile-block .buttons-block {
+	text-align: center;
+	clear: both;
+	padding: 0 0 5px;
+}
+.profile-block .buttons-block .btn {
+	float: none;
+	display: inline-block;
+	margin: 0 26px;
+}
+.profile-block .main-info {
+	float: left;
+	margin: 0 180px 0 0;
+}
+.profile-block .main-info h2 {
+	padding: 13px 0 4px;
+}
+.profile-block .additional-info {
+	float: left;
+}
+.profile-block .additional-info h2 span {
+	font-weight: normal;
+	font-style: italic;
+	text-transform: lowercase;
+}
+
+.profile-block .additional-info .form-list {
+	padding: 0;
+}
+.profile-block .additional-info h2 {
+	padding: 7px 0 4px;
+}
+.profile-block .additional-info .second {
+	padding: 0;
+}
+.profile-block .additional-info .second h2 {
+	padding: 15px 0 7px;
+}
 /*----------------------------------------------------------------------------------*/
 /*-----------------------------------> Lightboxes <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
@@ -1328,7 +1411,7 @@ h1 {
 	margin: 0 13px;
 }
 
-.ui-datepicker {
+.datepicker-smoothness .ui-datepicker {
 	font-size: 12px;
 }
 

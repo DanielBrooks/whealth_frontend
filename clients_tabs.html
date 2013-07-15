@@ -11,8 +11,9 @@
         <link rel="stylesheet" href="css/main.css">
             
         <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-        <link rel="stylesheet" href="css/smoothness/jquery.ui.core.min.css">
-        <link rel="stylesheet" href="css/smoothness/jquery.ui.datepicker.min.css">
+        <link rel="stylesheet" href="css/jquery.ui.core.min.css">
+        <link rel="stylesheet" href="css/jquery.ui.datepicker.min.css">
+        <link rel="stylesheet" href="css/smoothness/jquery.ui.theme.min.css">
         
         <link rel="stylesheet" href="css/jquery.ui.selectmenu.css">
         
@@ -165,12 +166,52 @@
                                     </fieldset>
                                     
                                     <fieldset class="additional-info">
+                                        <ul class="form-list">
+                                            <li class="caption-block">
+                                                <h2>Co-client <span>(leave blank if none)</span></h2>
+                                            </li>
+                                            <li class="input-block"><input type="text" placeholder="First Name" /></li>
+                                            <li class="input-block"><input type="text" placeholder="Middle Name" /></li>
+                                            <li class="input-block"><input type="text" placeholder="Last Name" /></li>
+                                            <li class="radio-block">
+                                                <span class="radio-caption">Gender</span>
+                                                <label class="custom-radio checked"><span class="icon"></span><input type="radio" name="client-gender" />Male</label>
+                                                <label class="custom-radio"><span class="icon"></span><input type="radio" name="client-gender" />Female</label>
+                                            </li>
+                                            <li class="input-block double even-double">
+                                                <input type="date" class="enable-datepicker" placeholder="Date of Birth" />
+                                                <span class="date-hint">mm/dd/yyyy</span>
+                                            </li>
+                                            
+                                            <li class="input-block"><input type="number" placeholder="Phone Number" /></li>
+                                            <li class="input-block"><input type="text" placeholder="Employer Name" /></li>
+                                        </ul>
                                         
+                                        <ul class="form-list">
+                                            <li class="caption-block second">
+                                                <h2>Children <span>(leave blank if none)</span></h2>
+                                            </li>
+                                            <li class="input-block"><input type="text" placeholder="Name" /></li>
+                                            <li class="input-block double even-double">
+                                                <input type="date" class="enable-datepicker" placeholder="Date of Birth" />
+                                                <span class="date-hint">mm/dd/yyyy</span>
+                                            </li>
+                                            <li class="input-block"><input type="text" placeholder="Name" /></li>
+                                            <li class="input-block double even-double">
+                                                <input type="date" class="enable-datepicker" placeholder="Date of Birth" />
+                                                <span class="date-hint">mm/dd/yyyy</span>
+                                            </li>
+                                            <li class="input-block"><input type="text" placeholder="Name" /></li>
+                                            <li class="input-block double even-double">
+                                                <input type="date" class="enable-datepicker" placeholder="Date of Birth" />
+                                                <span class="date-hint">mm/dd/yyyy</span>
+                                            </li>
+                                        </ul>
                                     </fieldset>
                                     
                                     <fieldset class="buttons-block">
                                         <button type="submit" class="btn btn-yellow">Update</button>
-                                        <a href="#" class="btn btn-yellow delete-item">Delete</a>
+                                        <a href="#" class="btn btn-yellow delete-item" data-confirm-text="2">Delete</a>
                                     </fieldset>
                                 </form>
                                 
@@ -213,7 +254,7 @@
                     <li class="buttons-block">
                         <button type="submit" class="btn btn-yellow">Save & Close</button>
                         <a href="#" class="btn btn-yellow close-lightbox">Close</a>
-                        <a href="#" class="btn btn-yellow delete-item">Delete</a>
+                        <a href="#" class="btn btn-yellow delete-item" data-confirm-text="1">Delete</a>
                     </li>
                 </ul>
             </form>
@@ -221,7 +262,8 @@
         
         <div class="confirm-lightbox no-display">
             <div class="confirm-wrap">
-                <p>Are you sure you want to delete<br />this Action Item / Alert?<br />You can not undo this.</p>
+                <p data-text="1">Are you sure you want to delete<br />this Action Item / Alert?<br />You can not undo this.</p>
+                <p data-text="2">Are you sure you want to delete<br />this client?<br />You can not undo this.</p>
                 <a href="#" class="btn btn-yellow confirm">Confirm</a>
                 <a href="#" class="btn btn-yellow cancel-confirm">Cancel</a>
             </div>
