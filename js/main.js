@@ -195,12 +195,21 @@ $(document).ready(function() {
     });
     
     
+    $('.table-block').each(function() {
+        $(this).find('.item-list li').each(function() {
+            if ($(this).find('a').length !== 0) {
+                $(this).addClass('filled');
+            }
+        });
+    });
+    
+    
     $('.table-block .caption-block a').on('click', function(e) {
         
         e.preventDefault();
         
         var parent = $(this).closest('.table-block').find('.item-list'),
-            childSelector = 'li',
+            childSelector = 'li.filled',
             keySelector = '.' + $(this).attr('class').split(' ')[0],
             way = 'descending';
         
@@ -246,7 +255,7 @@ $(document).ready(function() {
             
             
             if (vB.length == 0) {
-                return -1;
+                return -2;
             }
             else {
                 if (way == "ascending") {
@@ -257,11 +266,10 @@ $(document).ready(function() {
                 }
             }
             
-            return false;
             
         });
         
-        parent.append(items);
+        parent.prepend(items);
         
     }    
     
