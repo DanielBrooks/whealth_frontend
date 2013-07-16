@@ -179,6 +179,104 @@ $(document).ready(function() {
     });
     
     
+    
+    
+    $('.table-block').each(function() {
+        
+        var $self = $(this).find('.sort').eq(0);
+            
+            parent = $self.closest('.table-block').find('.item-list'),
+            childSelector = 'li',
+            keySelector = '.' + $self.attr('class').split(' ')[0],
+            way = 'descending';
+        
+        
+        $self.closest('.caption-block').find('a').removeClass('sort sort-up');
+        $self.addClass('sort');
+        
+        sortItems(parent, childSelector, keySelector, way);
+        
+    });
+    
+    
+    $('.table-block').each(function() {
+        $(this).find('.item-list li').each(function() {
+            if ($(this).find('a').length !== 0) {
+                $(this).addClass('filled');
+            }
+        });
+    });
+    
+    
+    $('.table-block .caption-block a').on('click', function(e) {
+        
+        e.preventDefault();
+        
+        var parent = $(this).closest('.table-block').find('.item-list'),
+            childSelector = 'li.filled',
+            keySelector = '.' + $(this).attr('class').split(' ')[0],
+            way = 'descending';
+        
+        
+        if ($(this).hasClass('sort-up')) {
+            
+            $(this).removeClass('sort-up');
+            
+        }
+        else if ($(this).hasClass('sort')) {
+            
+            way = 'ascending';
+            $(this).addClass('sort-up');
+            
+        }
+        else {
+            
+            $(this).closest('.caption-block').find('a').removeClass('sort sort-up');
+            $(this).addClass('sort');
+            
+        }
+        
+        sortItems(parent, childSelector, keySelector, way);
+        
+    });
+    
+    
+    function sortItems(parent, childSelector, keySelector, way) {
+        
+        var items = new Array(parent.find(childSelector).length),
+            count = 0;
+        
+        
+        parent.find(childSelector).each(function() {
+            items[count] = $(this);
+            count++;
+        });
+        
+        items.sort(function(a, b) {
+            
+            var vA = $(keySelector, a).text(),
+                vB = $(keySelector, b).text();
+            
+            
+            if (vB.length == 0) {
+                return -2;
+            }
+            else {
+                if (way == "ascending") {
+                    return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
+                }
+                if (way == "descending") {
+                    return (vA < vB) ? 1 : (vA > vB) ? -1 : 0;
+                }
+            }
+            
+            return false;
+        });
+        
+        parent.prepend(items);
+        
+    }    
+    
     function openLightbox() {
         $('.overlay, .lightbox').removeClass('no-display');
     }
