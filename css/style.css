@@ -56,7 +56,7 @@ body, select, input, textarea, input[type="password"], button {
     font-family: Verdana, Helvetica, sans-serif;
 }
 
-select, input, textarea        { font-size: 13px; vertical-align:middle; }
+select, input, textarea        { font-size: 13px; vertical-align:middle; -webkit-appearance: none; }
 textarea                       { vertical-align:top; }
 :focus                         { outline:none !important; }
 input[type=submit]             { cursor:pointer; }
@@ -512,8 +512,6 @@ h1 {
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
-	
-	-webkit-appearance: none;
 }
 .form-list .double input:first-child {
     width: 55px;
@@ -836,7 +834,7 @@ h1 {
 	margin: 0 5px 0 0;
 }
 .add-block .hint {
-	padding: 2px 0 0 12px;
+	padding: 5px 0 0 12px;
 	float: left;
 }
 
@@ -1129,7 +1127,7 @@ h1 {
 	padding: 21px 0 0;
 }
 
-.client-tabs-page .notes-block .caption {
+.notes-block .caption {
 	display: block;
 	background: #DADADA;
 	border: 1px solid #96989A;
@@ -1138,7 +1136,7 @@ h1 {
 	height: 22px;
 	padding: 8px 0 0 32px;
 }
-.client-tabs-page .notes-block textarea {
+.notes-block textarea {
 	display: block;
 	border: 1px solid #96989A;
 	width: 100%;
@@ -1188,7 +1186,14 @@ h1 {
 	padding: 14px 0 5px;
 	overflow: hidden;
 }
-
+.client-tabs-page .coming-soon {
+	color: #999;
+	font-size: 32px;
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	padding: 80px 0 0;
+}
 
 .ui-tabs-nav {
 	background: #808284;
@@ -1266,13 +1271,39 @@ h1 {
 .profile-block .additional-info .second h2 {
 	padding: 15px 0 7px;
 }
+
+
+/*----------------------------------------------------------------------------------*/
+/*---------------------------------> Contact page <---------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.contact-page .form-list {
+	width: auto;
+}
+.contact-page .hint {
+	text-align: left;
+	padding: 6px 0 19px;
+}
+.contact-page .custom-check {
+	font-size: 10px;
+	padding-left: 20px;
+	padding-top: 2px;
+}
+.contact-page .buttons-block .btn {
+	float: none;
+}
+.contact-page .description h2 {
+	padding: 24px 0 6px;
+}
+.contact-page .notes-block {
+	padding-top: 24px;
+}
 /*----------------------------------------------------------------------------------*/
 /*-----------------------------------> Lightboxes <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
 .overlay {
 	background: #808284;
 	opacity: 0.8;
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -1487,6 +1518,32 @@ h1 {
 		display: none;
 	}
 	
+	.login-page .slider {
+		position: relative;
+	}
+	.login-page .description {
+		padding-top: 0;
+	}
+	.login-info .left,
+	.login-info .right {
+		width: auto;
+		height: auto;
+		margin: 0 auto;
+		float: none;
+	}
+	.login-info .right {
+		border: 0;
+	}
+	.login-info .right .form-list {
+		padding-left: 0;
+	}
+	
+	
+	textarea {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
 	.content {
 		padding-left: 20px;
 		padding-right: 22px;
@@ -1500,8 +1557,9 @@ h1 {
 		width: auto;
 		margin: 0;
 	}
-	.form-list {
-		margin: 0 auto !important;
+	.form-list,
+	.register-form.description .form-list {
+		margin: 0 auto;
 	}
 	.left {
 		padding-bottom: 24px;
@@ -1518,6 +1576,45 @@ h1 {
 	}
 	.register-info-second .radio-list {
 		margin: 0 auto;
+	}
+	
+	
+	.advisor-area .description {
+		padding-left: 34px;
+		padding-right: 38px;
+	}
+	.client-tabs-page .description {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.firm-advisor-page .clients-block {
+		float: none;
+		margin: 0 0 25px;
+	}
+	.firm-admin-page .firm-info {
+		margin-right: 40px;
+	}
+	
+	.client-tabs-page .advisor-info li:first-child,
+	.ui-tabs-nav {
+		padding-left: 30px;
+	}
+	.ui-tabs-nav {
+		padding-right: 0;
+	}
+	.ui-tabs-nav li {
+		width: auto;
+		padding: 0 30px 0 0;
+	}
+	.ui-tabs-panel {
+		padding: 0 30px;
+		width: 534px;
+	}
+	.profile-block .main-info {
+		margin: 0 50px 0 0;
+	}
+	.profile-block .buttons-block {
+		padding-right: 20px;
 	}
 }
 

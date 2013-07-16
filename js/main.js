@@ -17,6 +17,10 @@ $(document).ready(function() {
         
     });
     
+    $(window).on('orientationchange', function() {
+        $('.enable-slider').anythingSlider();
+    });
+    
     // Initialize sliders
     $('.enable-slider').anythingSlider();
     
