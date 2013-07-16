@@ -266,7 +266,7 @@ $(document).ready(function() {
                 }
             }
             
-            
+            return false;
         });
         
         parent.prepend(items);
