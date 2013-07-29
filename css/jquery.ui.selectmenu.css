@@ -62,14 +62,14 @@
     height: auto;
     text-align: center;
     
-    -webkit-border-radius: 11px;
-    -moz-border-radius: 11px;
-    border-radius: 11px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 .ui-selectmenu.enable-custom-selectmenu.ui-state-active {
-    -webkit-border-radius: 11px 11px 0 0;
-    -moz-border-radius: 11px 11px 0 0;
-    border-radius: 11px 11px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 .ui-selectmenu-menu .enable-custom-selectmenu li a,
 .enable-custom-selectmenu .ui-selectmenu-status {
@@ -91,10 +91,13 @@
 .ui-selectmenu-menu .enable-custom-selectmenu {
     border-top: 0;
     background: #FFF;
-    
-    -webkit-border-radius: 0 0 11px 11px;
-    -moz-border-radius: 0 0 11px 11px;
-    border-radius: 0 0 11px 11px;
+    overflow: hidden;
+}    
+.ui-selectmenu-menu .enable-custom-selectmenu,
+.ui-selectmenu-menu .enable-custom-selectmenu > li:last-child {
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .enable-custom-selectmenu .ui-selectmenu-icon {

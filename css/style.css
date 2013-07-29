@@ -56,7 +56,11 @@ body, select, input, textarea, input[type="password"], button {
     font-family: Verdana, Helvetica, sans-serif;
 }
 
-select, input, textarea        { font-size: 13px; vertical-align:middle; -webkit-appearance: none; }
+select, input:not([type="checkbox"]), textarea {
+	font-size: 13px;
+	vertical-align:middle;
+	-webkit-appearance: none;
+}
 textarea                       { vertical-align:top; }
 :focus                         { outline:none !important; }
 input[type=submit]             { cursor:pointer; }
@@ -68,6 +72,12 @@ a                              { color: #000; /*color: #0085D2;*/ text-decoratio
 a:hover                        { color: #000; text-decoration:underline; }
 button                         { color: #fff; padding: 0; border: 0; }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
 .bold {
     font-weight: bold;
@@ -90,7 +100,7 @@ button                         { color: #fff; padding: 0; border: 0; }
 /*----------------------------------------------------------------------------------*/
 .wrapper {
     height: 100%;
-    min-height: 670px;
+    min-height: 640px;
     position: relative;
     background: url(../images/bg_pattern.png) repeat;
     background-size: 500px 300px;
@@ -107,6 +117,7 @@ button                         { color: #fff; padding: 0; border: 0; }
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+	
 }
 .wrap .page {
     height: 100%;
@@ -253,7 +264,31 @@ h1 {
     display: block;
     float: left;
 }
-
+.sidebar .login-block .buttons-block {
+	overflow: hidden;
+}
+.sidebar .login-block .btn {
+	width: 117px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #FFF;
+	background: #808284;
+	text-transform: uppercase;
+	float: right;
+	padding: 3px 0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.sidebar .login-block .btn:hover {
+	background: #DFDFDF;
+	color: #515056;
+}
 
 .sidebar .nav {
     padding: 28px 18px 0;
@@ -442,7 +477,7 @@ h1 {
     padding: 18px 0 0;
 }
 .description .btn {
-    margin-top: 24px;
+    margin-top: 14px;
 }
 
 .description {
@@ -500,6 +535,19 @@ h1 {
     padding: 0 0 10px;
 }
 .form-list .input-block input,
+.search-block input,
+.form-list select {
+    border: 1px solid #808284;
+    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.form-list a.state-field {
+	padding-right: 10px;
+	width: 75px !important;
+}
+.form-list .input-block input,
 .search-block input {
     font-size: 10px;
     text-align: center;
@@ -507,17 +555,22 @@ h1 {
     height: 14px;
     display: block;
     padding: 3px 15px;
-    border: 1px solid #808284;
-    
-    -webkit-border-radius: 11px;
-    -moz-border-radius: 11px;
-    border-radius: 11px;
 }
-.form-list .double input:first-child {
+.form-list .double input:first-child,
+.form-list .double .first {
     width: 55px;
     float: left;
     margin: 0 8px 0 0;
 }
+.form-list .double select.first {
+	width: 85px;
+}
+.form-list .double input[type="password"] {
+	width: 91px !important;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
 .form-list .double input {
     width: 105px;
 }
@@ -565,7 +618,7 @@ h1 {
 	float: left;
 	position: relative;
 	padding: 0 0 0 21px;
-	margin: 0 0 0 41px;
+	margin: 0 0 0 34px;
 }
 .form-list .radio-block .icon {
 	background: url(../images/radiobutton_icons.png) no-repeat;
@@ -581,6 +634,15 @@ h1 {
 	background-position: 0 -13px;
 }
 
+
+:focus::-webkit-input-placeholder{ color:transparent !important; }
+
+:focus::-moz-placeholder { color:transparent !important; } /* firefox 19+ */
+:focus:-ms-input-placeholder { color:transparent !important; } /* ie */
+:focus:-moz-placeholder { color:transparent !important; }
+
+
+
 .register-info-first p {
 	text-align: center;
 }
@@ -593,7 +655,7 @@ h1 {
 }
 
 .register-check-list li {
-	padding: 19px 0 0;
+	padding: 13px 0 0;
 }
 .register-check-list li:first-child {
 	padding: 13px 0 0;
@@ -641,7 +703,7 @@ h1 {
 	margin-top: 28px;
 }
 .register-info-second .btn-yellow {
-	margin-top: 105px;
+	margin-top: 63px;
 }
 .radio-list {
 	padding: 0 0 5px 3px;
@@ -662,7 +724,7 @@ h1 {
 	margin: 0 auto;
 }
 .register-info-third .btn-yellow {
-	margin-top: 155px;
+	margin-top: 133px;
 }
 
 
@@ -858,11 +920,11 @@ h1 {
 	margin: 0 0 0 5px;
 	border-style: solid;
 	border-width: 8px 4px 0;
-	border-color: #808284 transparent transparent;
+	border-color: #F69E1E transparent transparent;
 }
 .table-block .sort.sort-up .sort-icon {
 	border-width: 0 4px 8px;
-	border-color: transparent transparent #808284;
+	border-color: transparent transparent #F69E1E;
 }
 
 .table-block .title,
@@ -1027,6 +1089,12 @@ h1 {
 .firm-advisor-page .input-block input {
 	width: 215px;
 }
+.firm-advisor-page .double.even-double input {
+	width: 88px;
+}
+.firm-advisor-page .double.even-double input:first-child {
+	margin-right: 7px;
+}
 .firm-advisor-page .check-block label {
 	line-height: 110%;
 	font-size: 10px;
@@ -1124,9 +1192,12 @@ h1 {
 /*------------------------------> Client notes page <-------------------------------*/
 /*----------------------------------------------------------------------------------*/
 .client-tabs-page .description {
-	padding: 21px 0 0;
+	padding: 16px 0 0;
 }
 
+.notes-block {
+	position: relative;
+}
 .notes-block .caption {
 	display: block;
 	background: #DADADA;
@@ -1149,6 +1220,10 @@ h1 {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 }
 .client-tabs-page .notes-block .btn {
 	float: none;
@@ -1198,7 +1273,7 @@ h1 {
 .ui-tabs-nav {
 	background: #808284;
 	padding: 2px 93px 3px 66px;
-	margin: 17px 0 10px;
+	margin: 12px 0 10px;
 }
 .ui-tabs-nav a {
 	color: #CBCBCB;
@@ -1248,7 +1323,7 @@ h1 {
 	margin: 0 180px 0 0;
 }
 .profile-block .main-info h2 {
-	padding: 13px 0 4px;
+	padding: 0px 0 0px;
 }
 .profile-block .additional-info {
 	float: left;
@@ -1263,13 +1338,13 @@ h1 {
 	padding: 0;
 }
 .profile-block .additional-info h2 {
-	padding: 7px 0 4px;
+	padding: 7px 0 0px;
 }
 .profile-block .additional-info .second {
 	padding: 0;
 }
 .profile-block .additional-info .second h2 {
-	padding: 15px 0 7px;
+	padding: 0px 0 10px;
 }
 
 
@@ -1488,6 +1563,17 @@ h1 {
 /*----------------------------------------------------------------------------------*/
 /*-----------------------------------> Responsive <---------------------------------*/
 /*----------------------------------------------------------------------------------*/
+@media all and (max-width: 1024px) {
+	.client-tabs-page .notes-block {
+		width: 667px;
+	}
+	.confirm-lightbox .confirm-wrap {
+		height: 95px;
+	}
+
+}
+
+
 @media all and (max-width: 768px) {
 	body {
 		min-width: 768px;
@@ -1586,6 +1672,9 @@ h1 {
 	.client-tabs-page .description {
 		padding-left: 0;
 		padding-right: 0;
+	}
+	.client-tabs-page .notes-block {
+		width: 535px;
 	}
 	.firm-advisor-page .clients-block {
 		float: none;

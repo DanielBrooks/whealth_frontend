@@ -98,8 +98,10 @@
                                         <h3>Required for registration</h3>
                                         <ul class="form-list">
                                             <li class="input-block"><input type="text" placeholder="Company Name" /></li>
-                                            <li class="input-block"><input type="text" placeholder="First Name" /></li>
-                                            <li class="input-block"><input type="text" placeholder="Last Name" /></li>
+                                            <li class="input-block double even-double">
+                                                <input type="text" placeholder="First Name" />
+                                                <input type="text" placeholder="Last Name" />
+                                            </li>
                                             <li class="input-block"><input type="email" placeholder="Emal (will be your login)" /></li>
                                             <li class="input-block double even-double small-padding">
                                                 <input type="password" placeholder="Password" />
@@ -118,7 +120,12 @@
                                             <li class="input-block"><input type="text" placeholder="Street Address 2" /></li>
                                             <li class="input-block"><input type="text" placeholder="City" /></li>
                                             <li class="input-block double">
-                                                <input type="text" placeholder="State" />
+                                                <!--<input type="text" placeholder="State" />-->
+                                                <select class="first state-field enable-custom-selectmenu">
+                                                    <option>MN</option>
+                                                    <option>FL</option>
+                                                    <option>NY</option>
+                                                </select>
                                                 <input type="number" placeholder="Zip" />
                                             </li>
                                             <li class="input-block"><input type="tel" placeholder="Phone" /></li>

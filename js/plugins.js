@@ -887,9 +887,9 @@
 		playRtl             : false,     // If true, the slideshow will move right-to-left
 
 		// Times
-		delay               : 2000,      // How long between slideshow transitions in AutoPlay mode (in milliseconds)
+		delay               : 4000,      // How long between slideshow transitions in AutoPlay mode (in milliseconds)
 		resumeDelay         : 0,     // Resume slideshow after user interaction, only if autoplayLocked is true (in milliseconds).
-		animationTime       : 1000,       // How long the slideshow transition takes (in milliseconds)
+		animationTime       : 2000,       // How long the slideshow transition takes (in milliseconds)
 		delayBeforeAnimate  : 0,         // How long to pause slide animation before going to the desired slide (used if you want your "out" FX to show).
 
 /*
